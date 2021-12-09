@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+
+using namespace std;
+int main()
+{
+    //name collecting
+    string name, name2;
+    cout << "Hello user! Please state your first name (it is fine with numbers too, we don't discriminate bots *wink*):\n";
+    cin >> name;
+    cout << "\nNext, enter your last name\n";
+    cin >> name2;
+    cout << "\nHello " << name << " " << name2 << ". This is math bot, I will find the factor, table of multiplication, and it's power table (you will know very soon) for your given number.\n";
+    
+    //data collecting
+    double num;
+    cout << "\nPlease, enter a number to start its process:\n";
+    cin >> num;
+    while (cin.fail())
+    {
+        cout << "Are you serious? That's not a number. Enter a number again: " << endl;
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cin >> num;
+    }
+
+    //factorial process
+    double fact = 1;
+    for (double x = 1; x <= num; x++) {
+        fact = fact * x;
+    }
+    cout << "The factorial for " << num << " is " << fact << endl;
+
+    //multi table
+    cout << "\nFor the multiplication table for that number up to 10:" << endl;
+    for (double y = 1; y <= 10; y++) {
+        cout << y << " * " << num << " = " << y * num << endl;
+    }
+
+    //power table
+    cout << "\nFor the power table, it is just a table like multiplication above but it distinguishes its power value up to 10:" << endl;
+    for (double a = 1; a <= 10; a++) {
+        cout << num << "^(" << a << ") = " << pow(num, a) << endl;
+    }
+
+    //forcing do-while loop into play
+    char ans;
+    do {
+        cout << "\n\nWas this bot useful? Enter Y for 'yes it was helpful' or N for 'no, it was not' " << endl;
+        cin >> ans;
+    } while (ans != 'Y' && ans != 'y' && ans != 'N' && ans != 'n');
+
+    cout << "Thank you for testing nonetheless!!!" << endl;
+    
+    cin.get();
+    return 0;
+}
